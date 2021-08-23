@@ -18,7 +18,7 @@ class Information
         try {
             $exif = @exif_read_data($file, null, true, false);
             if ($exif) {
-                return $exif;
+                return ['_EXIF_' => $exif];
             }
         }
         catch (\Throwable $e) {
