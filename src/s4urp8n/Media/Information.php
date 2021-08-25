@@ -45,9 +45,9 @@ class Information
                 if (count($lineparts) == 1) {
                     $section = trim($lineparts[0]);
                 }
-                if (count($lineparts) == 2) {
-                    $key = trim($lineparts[0]);
-                    $value = trim($lineparts[1]);
+                if (count($lineparts) > 1) {
+                    $key = trim(array_shift($lineparts));
+                    $value = trim(implode(':', $lineparts));
                     if ($section) {
                         if (!array_key_exists($section, $result)) {
                             $result[$section] = [];
